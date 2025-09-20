@@ -5,7 +5,65 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #64A9CC; /* Fondo claro */
+  color: #333; /* Texto oscuro */
+}
+/* Cada sección ocupa espacio y tiene separación */
+section{
+  padding: 60px 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+  border-bottom: 1px solid #ddd;
+}
+/* Títulos de sección */
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  border-left: 5px solid #ff9800;
+  padding-left: 10px;
+  text-align: left;
+}
+section h5 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #ff9800;
+  border-right: 3px solid #64A9CC;
+  padding-left: 5px;
+  text-align: left;
+}
+/* Párrafos */
+section p{
+  font-size: 1rem;
+  line-height: 1;
+  text-align: justify;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Listas */
+section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+section ul li {
+  background-color: #ddd;
+  margin: 5px 0;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+section ul li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 .header {
   text-align: 'center';
@@ -13,15 +71,54 @@
   background-color:'#f0f0f0';
 }
 .navbar {
-  background-color: #333;
-  padding: 10px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  color: #222;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.log img{
+  width: 40px;
+  height: 40px;
 }
 .listaOrdenada {
   display: flex;
   list-style: none;
   justify-content: space-between;
-  color: #fff;
+  gap: 20px;
+  color: #333;
 }
+
+.listaOrdenada li a{
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.listaOrdenada li a:hover{
+  color: #ff9800;
+}
+
+.menu-desplegable {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
 .formularioRegistro {
   text-align: center;
   align-items: center;
@@ -29,52 +126,91 @@
   flex-direction: column;
   max-width: 300px;
 }
-.listaOrdenadaRedesSociales{
-  list-style: none;
-  padding: 5px;
+
+/* CRONOGRAMA*/
+.cronograma {
+  padding: 20px;
+  text-align: left;
 }
-.listaOrdenadaRedesSociales a {
- 
-  text-decoration: none;
-  color: inherit;
+
+.descripcion-cronograma {
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
+
+.tabla-cronograma {
+  width: 100%;
+  border-collapse: collapse;
+  color: #333;
+  font-weight: bold;
+}
+
+.tabla-cronograma th,
+.tabla-cronograma td {
+  border: 1px solid #ccc;
+  background-color: #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.estado.pendiente {
+  color: orange;
+  font-weight: bold;
+}
+
+.estado.en-proceso{
+  color: blue;
+  font-weight: bold;
+}
+
+.estado.completado {
+  color: green;
+  font-weight: bold;
+}
+
 .footer {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   background-color: #eee;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.listaOrdenadaRedesSociales{
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.listaOrdenadaRedesSociales a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .menu-desplegable{
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+  .listaOrdenada {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 37px;
+    right: 0;
+    padding: 20px;
+    border-radius: 7px;
+    font-weight: bold;
+  }
+  .listaOrdenada.open{
+    display: flex;
   }
 }
