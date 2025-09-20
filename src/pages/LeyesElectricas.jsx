@@ -3,7 +3,7 @@ import React from 'react'
 function LeyesElectricas() {
     return (
         <section id='leyesElectricas'>
-            <h2>Leyes Elécticas</h2>
+            <h2>Leyes Eléctricas</h2>
             <ul>
                 <li><h5>Ley de OHM</h5>
                     <h6>
